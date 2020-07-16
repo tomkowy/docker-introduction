@@ -6,7 +6,7 @@ services:
             MYSQL_ROOT_PASSWORD: 'codibly'
         volumes:
             - dbVol:/var/lib/mysql2 
-        ports:
+        expose:
             - 3306
     web:
         build: 
@@ -15,9 +15,7 @@ services:
         depends_on:
             - db
         ports:
-            - "8888:8080"
-        expose:
-            - 8888
+            - 8888:8080
         command: ["./wait-for-it.sh", "db:3306", "--", "node", "server.js"]       
 volumes:
     dbVol:
