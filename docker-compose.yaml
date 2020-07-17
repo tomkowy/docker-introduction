@@ -6,7 +6,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: 'codibly'
         volumes:
-            - dbVol:/var/lib/mysql2 
+            - dbVol:/var/lib/mysql
         expose:
             - 3306
     web:
